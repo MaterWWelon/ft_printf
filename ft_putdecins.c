@@ -6,12 +6,12 @@
 /*   By: mbellini <mbellini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:14:41 by mbellini          #+#    #+#             */
-/*   Updated: 2021/12/13 15:34:56 by mbellini         ###   ########.fr       */
+/*   Updated: 2021/12/14 18:05:36 by mbellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_putdecins(unsigned int n)
 {
