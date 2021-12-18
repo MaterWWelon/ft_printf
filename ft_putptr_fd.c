@@ -6,29 +6,34 @@
 /*   By: mbellini <mbellini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 10:13:43 by mbellini          #+#    #+#             */
-/*   Updated: 2021/12/14 18:05:01 by mbellini         ###   ########.fr       */
+/*   Updated: 2021/12/18 15:05:43 by mbellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_putnbr_base_fd(long long n, int fd)
+int	ft_putnbr_base_fd(long long n, int fd)
 {
-	char *base;
+	char	*base;
+	int		i;
 
 	base = "0123456789abcdef";
+	i = 1;
 	if (n >= 16)
 	{
-		ft_putnbr_base_fd(n / 16, fd);
+		i += ft_putnbr_base_fd(n / 16, fd);
 		ft_putchar_fd(base[n % 16], fd);
 	}
 	else
+	{
 		ft_putchar_fd(base[n % 16], fd);
+		i++;
+	}
+	return (i);
 }
 
-void	ft_putptr_fd(long long ptr, int fd)
+int	ft_putptr_fd(long long ptr, int fd)
 {
 	ft_putstr_fd("0x", fd);
-	ft_putnbr_base_fd(ptr, fd);
+	return (ft_putnbr_base_fd(ptr, fd) + 1);
 }
